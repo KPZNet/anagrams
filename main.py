@@ -2,6 +2,7 @@ import random
 import time
 from typing import List
 
+ORD_A = ord('A')
 
 def CreateHash():
         ws: List[int] = []
@@ -14,8 +15,7 @@ def ClearHash(ws):
         ws[i] = 0
     return ws
 
-def HashCheck(str1, str2, wsHash):
-
+def RunHashMethod(str1, str2, wsHash):
     ws = ClearHash(wsHash)
     HashStrings(str1, str2, ws)
     ret = CheckHashTableEmpty(ws)
@@ -23,11 +23,11 @@ def HashCheck(str1, str2, wsHash):
 
 def HashStrings(str1, str2, ws):
     for w in str1:
-        i = ord(w) - ord('A')
+        i = ord(w) - ORD_A
         ws[i] = ws[i] + 1
 
     for w in str2:
-        i = ord(w) - ord('A')
+        i = ord(w) - ORD_A
         ws[i] = ws[i] - 1
 
 def CheckHashTableEmpty(ws):
@@ -38,7 +38,7 @@ def CheckHashTableEmpty(ws):
             break
     return ret
 
-def SortCheck(str1, str2):
+def RunSortMethod(str1, str2):
     s_str1 = sorted(str1)
     s_str2 = sorted(str2)
     if s_str1 == s_str2:
@@ -60,8 +60,8 @@ def RunSortHashCheck(rng, wlStart, wlEnd):
         wordLen = random.randint ( wlStart, wlEnd )
         str1 = RandomWordGen(wordLen)
         str2 = RandomWordGen(wordLen)
-        c = SortCheck(str1, str2)
-        c = HashCheck ( str1, str2, wsHash )
+        c = RunSortMethod(str1, str2)
+        c = RunHashMethod (str1, str2, wsHash)
 
 
 if __name__ == '__main__':

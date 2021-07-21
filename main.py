@@ -54,23 +54,6 @@ def RandomWordGen(wLen):
     return wrd
 
 
-def RunSortCheck(rng, wlStart, wlEnd):
-    for i in range(rng):
-        wordLen = random.randint ( wlStart, wlEnd )
-        str1 = RandomWordGen(wordLen)
-        str2 = RandomWordGen(wordLen)
-        c = SortCheck(str1, str2)
-
-
-def RunHashCheck(rng, wlStart, wlEnd):
-    wsHash = CreateHash ()
-    for j in range(rng):
-        wordLen = random.randint ( wlStart, wlEnd )
-        str1 = RandomWordGen(wordLen)
-        str2 = RandomWordGen(wordLen)
-        c = HashCheck(str1, str2, wsHash)
-
-
 def RunSortHashCheck(rng, wlStart, wlEnd):
     wsHash = CreateHash ()
     for j in range(rng):
@@ -86,23 +69,8 @@ if __name__ == '__main__':
     wlStart = 2
     wlEnd = 100
 
-    tic = time.perf_counter()
     RunSortHashCheck(rng, wlStart, wlEnd)
-    toc = time.perf_counter()
-    print(f"Sort-Hash Check {toc - tic:0.4f} seconds")
 
-    exit(0)
-
-    tic = time.perf_counter()
-    RunSortCheck(rng, wlStart, wlEnd)
-    toc = time.perf_counter()
-    print(f"Sort Check {toc - tic:0.4f} seconds")
-
-    tic = time.perf_counter()
-
-    RunHashCheck(rng, wlStart, wlEnd)
-    toc = time.perf_counter()
-    print(f"Hash Check {toc - tic:0.4f} seconds")
 
 
 

@@ -67,10 +67,10 @@ def RunSortHashCheck(rng, wlStart, wlEnd):
 if __name__ == '__main__':
     rng = 1000
     wlStart = 2
-    wlEnd = 200
-
-    RunSortHashCheck(rng, wlStart, wlEnd)
-    print("End OProfile")
+    wlEnd = 100
+    print("Start Profiling...")
+   #RunSortHashCheck(rng, wlStart, wlEnd)
+    print("End Profiling...")
 
 
 
